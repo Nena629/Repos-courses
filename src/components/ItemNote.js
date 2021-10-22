@@ -1,10 +1,9 @@
 import React from 'react'
 
-const ItemNote = ({content}) => {
-    console.log(content)
+const ItemNote = ({title}) => {
     return (
         <li>
-            <span> {content} </span>
+            <span> {title} </span>
             <button classname="btn btn-danger float-end">x</button>
         </li>
 

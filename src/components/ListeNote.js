@@ -9,7 +9,7 @@ const ListeNote = ({list}) => {
                {/*List of itemNote*/} 
             {list.map((note) => (
                    <ItemNote 
-                   content={note.content}
+                   title={note.content}
                    key= {note.id}
                     />
             )
