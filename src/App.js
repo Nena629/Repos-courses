@@ -42,7 +42,7 @@ const App = () => {
     return (
         <div style={{ textAlign: "center" }}>
             <h1>Note app</h1>
-        {/* listeNote*/}
+        {/* liste Note*/}
             <AddNote addListNote= {addNewNote} />
             <hr />
             <div className="filter border w-50 mx-auto">
