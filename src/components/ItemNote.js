@@ -1,9 +1,10 @@
 import React from 'react'
 
-const ItemNote = () => {
+const ItemNote = ({content}) => {
+    console.log(content)
     return (
         <li>
-            <span>Note 1</span>
+            <span> {content} </span>
             <button classname="btn btn-danger float-end">x</button>
         </li>
 
@@ -11,4 +12,3 @@ const ItemNote = () => {
 }
 
 export default ItemNote
-
