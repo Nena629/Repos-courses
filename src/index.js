@@ -6,14 +6,17 @@ const initialState = [
   new Task(3, "task 3")
 ]
 
-const TodoReducer = (prevState,typeAction, inputAction) => {
-  switch (typeAction) {
-    case "todo/add":
+const TYPE_TODO_ADD="todo/add"
+
+const TodoReducer = (
+  prevState=initialState,action) => {
+  switch (action.type) {
+    case TYPE_TODO_ADD:
       return [
         ...prevState,
         new Task(
           prevState.length + 1,
-          inputAction.titleTask
+          action.payload.titleTask
         )
       ]
     default:
@@ -21,10 +24,20 @@ const TodoReducer = (prevState,typeAction, inputAction) => {
   }
 }
 
-let newState = 
-TodoReducer(initialState,"todo/add",{titleTask:"task 4"})
-console.log(newState)
+let newState1 = 
+TodoReducer(
+  {
+    type : TYPE_TODO_ADD,
+    payload : {titleTask:"task 4"}
+  }
+)
+console.log(newState1)
 
-newState = 
-TodoReducer(newState,"todo/add",{titleTask:"task 5"})
-console.log(newState)
+let newState2 = 
+TodoReducer(newState1,
+  {
+    type : TYPE_TODO_ADD,
+    payload : {titleTask:"task 5"}
+  }
+)
+console.log(newState2)
