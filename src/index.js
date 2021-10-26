@@ -8,9 +8,10 @@ const initialState = [
 
 const TYPE_TODO_ADD="todo/add"
 
-const TodoReducer = (
-  prevState=initialState,action) => {
+const TodoReducer = (action={},prevState=initialState ) => {
+
   switch (action.type) {
+   
     case TYPE_TODO_ADD:
       return [
         ...prevState,
@@ -34,10 +35,11 @@ TodoReducer(
 console.log(newState1)
 
 let newState2 = 
-TodoReducer(newState1,
+TodoReducer(
   {
     type : TYPE_TODO_ADD,
     payload : {titleTask:"task 5"}
-  }
+  },
+  newState1
 )
 console.log(newState2)
