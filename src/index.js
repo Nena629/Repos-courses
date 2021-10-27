@@ -1,5 +1,6 @@
+import { createStore } from "redux";
 import { Task } from "./models/task";
-
+// PREMIER STATE
 const initialState = [
   new Task(1, "task 1"),
   new Task(2, "task 2"),
@@ -8,7 +9,7 @@ const initialState = [
 
 const TYPE_TODO_ADD="todo/add"
 
-const TodoReducer = (action={},prevState=initialState ) => {
+const TodoReducer = (prevState=initialState,action={}) => {
 
   switch (action.type) {
     //TO ADD 
@@ -27,32 +28,33 @@ const TodoReducer = (action={},prevState=initialState ) => {
   }
 }
 
-//newstate 1 
-let newState1 = 
-TodoReducer(
-  {
-    type : TYPE_TODO_ADD,
-    payload : {titleTask:"task 4"}
-  }
-)
-console.log(newState1)
+//UTILISATION DE REDUX
 
-let newState2 = 
-TodoReducer(
-  {
-    type : TYPE_TODO_ADD,
-    payload : {titleTask:"task 5"}
-  },
-  newState1
-)
-console.log(newState2)
+const store = createStore(TodoReducer)
+//console.log(store.getState())
 
-let newState3 = 
-TodoReducer(
-  {
-    type : TYPE_TODO_ADD,
-    payload : {titleTask:"task 6"}
-  },
-  newState2
-)
-console.log(newState3)
+//SUBSCRIBE TO STORE AND WE DELETE CONSOLELOG avec ce principe pour qu'il le fasse automatiquement 
+store.subscribe(()=> console.log(store.getState()))
+
+//ADD NEW TASK 4
+store.dispatch({
+  type:TYPE_TODO_ADD,
+  payload:{titleTask:"task4"}
+})
+
+//console.log(store.getState())
+
+//ADD NEW TASK 5
+store.dispatch({
+  type:TYPE_TODO_ADD,
+  payload:{titleTask:"task5"}
+})
+//console.log(store.getState())
+
+
+//ADD NEW TASK 6
+store.dispatch({
+  type:TYPE_TODO_ADD,
+  payload:{titleTask:"task6"}
+})
+//console.log(store.getState())
