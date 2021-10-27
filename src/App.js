@@ -1,10 +1,15 @@
 import React from 'react'
+import { Provider } from 'react-redux'
+import ListTodo from './components/ListTodo'
+import store from "./store"
 
 const App = () => {
     return (
-        <div>
-            Hello I'm Really Here 🐰 !!
-        </div>
+        <Provider store={store}>
+           Hello I am here 
+           <hr/>
+           <ListTodo/>
+        </Provider>
     )
 }
 
