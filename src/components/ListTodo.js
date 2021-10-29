@@ -4,7 +4,6 @@ import { TYPE_TODO_DELETE } from '../store/types/todo'
 import ItemTodo from './ItemTodo'
 
 
-
 //TODOS EST UNE PROPRIETE
 const ListTodo = ({todos,deleteTaskById}) => {
     return (
@@ -30,6 +29,8 @@ const ListTodoStore =connect(
     dispatch => ({
     //DELETETASKBYID OU ON A UNE VALEUR  ET RAJOUTE UNE FONCTION FLECHEE ET ON RAJOUTE TASKID ET ON MET DISPATCH ON VA RAJOUTER L4ACTION QUI EST UN OBJET QUI EST TYPE ET PAYLOAD
     // TASKID C EST UNE PROPRIETE
+    //THE SECOND DISPATCH ITS AN ACTION QUI CONTIENT UN OBJET 
+    //liaison 
         deleteTaskById: taskId => dispatch({
           type: TYPE_TODO_DELETE ,
           payload: {taskId}
