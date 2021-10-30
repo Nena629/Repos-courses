@@ -1,10 +1,10 @@
 import { connect } from 'react-redux'
-import { TYPE_TODO_UPDATE_FILTER } from '../store/types/todo'
+import { TYPE_TODO_FILTER } from '../store/types/todo'
 
-const FilterTodo = ({ updateFilterTodos }) => {
+const FilterTodo = ({ filterTaskByTitle }) => {
     
     const handleChange=(e)=>{
-        updateFilterTodos(e.target.value)
+        filterTaskByTitle(e.target.value)
     }   
 
     return (
@@ -19,8 +19,8 @@ const FilterTodo = ({ updateFilterTodos }) => {
 const FilterTodoStore = connect(null,
 
     (dispatch) => ({
-        updateFilterTodos: queryTitle => dispatch({
-            type: TYPE_TODO_UPDATE_FILTER,
+        filterTaskByTitle: queryTitle => dispatch({
+            type: TYPE_TODO_FILTER,
             payload: { queryTitle }
         })
     })
