@@ -6,7 +6,7 @@ const AddTodo = ({addNewTask}) => {
     
     const [titleTask, setTitleTask] = useState("")
     
-    //click
+    //CLICK
     const handleClick = ()=>{
         //valider les donnees 
         if(titleTask==="") alert("shouldnt be empty 😈")
@@ -15,7 +15,7 @@ const AddTodo = ({addNewTask}) => {
             setTitleTask("")
         }
     }
-    //change
+    //CHANGE
     const handleChange = (e)=>{
         setTitleTask(e.target.value)
     }
@@ -26,6 +26,9 @@ const AddTodo = ({addNewTask}) => {
         </div>
     )
 }
+//NULL ON NE VEUT PAS RECUPERER LES DONNEES MAIS PLUTOT LES ACTIONS 
+//UNE FONCTION A DEUX PARAMETRES DONEES ET ACTIONS 
+//ADDNEWTASK C EST UNE LIAISON ET C EST UNE PROPRIETE
 
 const AddTodoStore = connect(null,
     (dispatch)=>({
@@ -35,5 +38,7 @@ const AddTodoStore = connect(null,
         })
     })
 )
+// ADDNEWTASK ON LA RECUPERE DU ADDTODO
+// LA PROPRIETE ET LE COMPOSANT = store
 
 export default AddTodoStore(AddTodo)

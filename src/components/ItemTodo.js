@@ -1,6 +1,6 @@
 const ItemTodo = ({ task, onDelete,onToggle }) => {
 
-    const onDeleteTask = () => {
+    const onDeleteTast = () => {
         if (window.confirm("Are You sur delete") === true)
             onDelete(task.id)
     }
@@ -13,12 +13,11 @@ const ItemTodo = ({ task, onDelete,onToggle }) => {
                 onChange={handleChange}
                 type="checkbox"
                 value={task.isCompleted} />
-                
             <span className={
                 task.isCompleted ? 
                 "text-decoration-line-through":""
             }>{task.title}</span>
-            <button onClick={onDeleteTask}
+            <button onClick={onDeleteTast}
             >DEL</button>
         </li>
     )
